@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+    background: #1a5f3f; /* Fallback garden green */
+  }
+}
+
+@layer components {
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .border-3 {
+    border-width: 3px;
+  }
+
+  /* Garden-themed scrollbar */
+  .garden-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .garden-scroll::-webkit-scrollbar-track {
+    @apply bg-amber-100 rounded-full;
+  }
+
+  .garden-scroll::-webkit-scrollbar-thumb {
+    @apply bg-amber-400 rounded-full;
+  }
+
+  .garden-scroll::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber-500;
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  /* Natural swaying animation for trees */
+  .tree-sway {
+    animation: treeSway 4s ease-in-out infinite;
+  }
+
+  @keyframes treeSway {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-1deg);
+    }
+  }
+
+  /* Floating animation for navigation elements */
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Magical sparkle effect */
+  .sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Parchment texture effect */
+  .parchment-texture {
+    background-image: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.05) 0%, transparent 50%);
+  }
+}
+
+/* Custom animations for future GSAP/Framer Motion integration */
+.tree-hover-animation {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tree-hover-animation:hover {
+  transform: scale(1.1) rotate(2deg);
+  filter: brightness(1.1) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Garden-specific animations */
+.leaf-fall {
+  animation: leafFall 3s ease-in infinite;
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.wind-effect {
+  animation: windSway 6s ease-in-out infinite;
+}
+
+@keyframes windSway {
+  0%,
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateX(2px) rotate(1deg);
+  }
+  66% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+}
